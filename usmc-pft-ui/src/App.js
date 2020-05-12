@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, HashRouter } from "react-router-dom";
+import { About, CFT, NavBar, PFT } from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import styles from "./App.module.scss";
+
+class App extends Component {
+  render() {
+    return (
+      <HashRouter>
+        <NavBar />
+        <div className={styles.container}>
+          <Route exact path="/" component={About} />
+          <Route path="/pft" component={PFT} />
+          <Route path="/cft" component={CFT} />
+        </div>
+      </HashRouter>
+    );
+  }
 }
 
 export default App;

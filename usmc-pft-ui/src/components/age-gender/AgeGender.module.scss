@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  input,
+  select {
+    max-width: 50px !important;
+    text-align: center;
+  }
+  p {
+    margin-left: 15px !important;
+    margin-right: 5px !important;
+  }
+}

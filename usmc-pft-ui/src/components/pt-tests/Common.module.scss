@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formRow {
+  display: inline-block;
+  margin-top: 10px;
+  label {
+    display: inline-block;
+    text-align: center !important;
+    width: 200px !important;
+    margin-right: -25px !important;
+  }
+  input {
+    max-width: 50px !important;
+    text-align: left !important;
+    margin-top: -5px !important;
+  }
+}
+
+.submitButton {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
