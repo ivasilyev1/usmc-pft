@@ -25,9 +25,9 @@ def get_age_range(age):
             return 51
 
 def get_total_pft_score_and_class(scores):
-    cardio = scores["Three Mile Run"] if "Three Mile Run" in scores.keys() else scores["Five Km Row"]
-    abdominal = scores["Crunches"] if "Crunches" in scores.keys() else scores["Plank"]
-    upper_body = scores["Pullups"] if "Pullups" in scores.keys() else scores["Pushups"]
+    cardio = scores["run"]["score"] if "run" in scores.keys() else scores["row"]["score"]
+    abdominal = scores["crunches"]["score"] if "crunches" in scores.keys() else scores["plank"]["score"]
+    upper_body = scores["pullups"]["score"] if "pullups" in scores.keys() else scores["pushups"]["score"]
     auto_fail = True if 0 in [cardio, abdominal, upper_body] else False
     total = cardio + abdominal + upper_body
     pft_class = get_pft_class(total, auto_fail)

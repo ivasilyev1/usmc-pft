@@ -11,32 +11,37 @@ def get_pft_score(request_body):
     crunches = request_body.get("crunches")
     plank = request_body.get("plank")
     high_alt = request_body.get("high_alt") != "False"
-    age = get_age_range(request_body.get("age"))
+    age = get_age_range(int(request_body.get("age")))
 
     run_row_time = get_run_row_time_to_seconds(run, row)
 
     scores = {}
-    scores["events"] = []
     if(run is not None):
-        scores["events"].append("Three Mile Run")
-        scores["Three Mile Run"] = get_pft_run(age, gender, run_row_time, high_alt)
+        scores["run"] = {}
+        scores["run"]["score"] = get_pft_run(age, gender, run_row_time, high_alt)
+        scores["run"]["max"] = 100
     if(row is not None):
-        scores["events"].append("Five Km Row")
-        scores["Five Km Row"] = get_pft_row(age, gender, run_row_time, high_alt)
+        scores["row"] = {}
+        scores["row"]["score"] = get_pft_row(age, gender, run_row_time, high_alt)
+        scores["row"]["max"] = 100
     if(pullups is not None):
-        scores["events"].append("Pullups")
-        scores["Pullups"] = get_pft_pullups(age, gender, int(pullups))
+        scores["pullups"] = {}
+        scores["pullups"]["score"] = get_pft_pullups(age, gender, int(pullups))
+        scores["pullups"]["max"] = 100
     if(pushups is not None):
-        scores["events"].append("Pushups")
-        scores["Pushups"] = get_pft_pushups(age, gender, int(pushups))
+        scores["pushups"] = {}
+        scores["pushups"]["score"] = get_pft_pushups(age, gender, int(pushups))
+        scores["pushups"]["max"] = 70
     if(crunches is not None):
-        scores["events"].append("Crunches")
-        scores["Crunches"] = get_pft_crunches(age, gender, int(crunches))
+        scores["crunches"] = {}
+        scores["crunches"]["score"] = get_pft_crunches(age, gender, int(crunches))
+        scores["crunches"]["max"] = 100
     if(plank is not None):
         age = 17
         plank_time = get_plank_time_to_seconds(plank)
-        scores["events"].append("Plank")
-        scores["Plank"] = get_pft_plank(age, gender, plank_time)
+        scores["plank"] = {}
+        scores["plank"]["score"] = get_pft_plank(age, gender, plank_time)
+        scores["plank"]["max"] = 100
     scores["total"] = get_total_pft_score_and_class(scores)
     return scores
 
