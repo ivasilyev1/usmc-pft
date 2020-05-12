@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+cftmatrix.txt
+matrix.txt
+matrix-loader.py
