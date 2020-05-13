@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField, Select, Paper } from "@material-ui/core";
-import { RunRowTime, ExerciseReps } from "../../util/formatters";
+import { RunRowTime, ExerciseReps, PlankTime } from "../../util/formatters";
 import { AgeGender, ScoreDisplay } from "../";
 
 import styles from "./Common.module.scss";
@@ -8,6 +8,14 @@ import styles from "./Common.module.scss";
 const PFT = (props) => {
   const [eventData, setEventData] = useState({});
   const [showScore, setShowScore] = useState(false);
+  const [plankSelect, setPlankSelect] = useState(false);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setPlankSelect(e.target.value === "plank");
+    console.log(plankSelect);
+  };
 
   return (
     <Paper elevation={3}>
@@ -37,6 +45,7 @@ const PFT = (props) => {
               name="cardioTime"
               type="text"
               placeholder="mm:ss"
+              required
               inputProps={{ maxLength: 5 }}
               InputProps={{
                 inputComponent: RunRowTime,
@@ -59,7 +68,8 @@ const PFT = (props) => {
               id="upperBodyReps"
               name="upperBodyReps"
               type="text"
-              inputProps={{ maxLength: 2 }}
+              required
+              inputProps={{ maxLength: 3 }}
               InputProps={{
                 inputComponent: ExerciseReps,
               }}
@@ -70,6 +80,7 @@ const PFT = (props) => {
               <Select
                 name="abdominal"
                 defaultValue={"crunches"}
+                onChange={handleChange}
                 disableUnderline
                 native
               >
@@ -81,10 +92,16 @@ const PFT = (props) => {
               id="abReps"
               name="abReps"
               type="text"
-              inputProps={{ maxLength: 3 }}
-              InputProps={{
-                inputComponent: ExerciseReps,
-              }}
+              required
+              placeholder={plankSelect ? "m:ss" : null}
+              inputProps={{ maxLength: 4 }}
+              InputProps={
+                plankSelect
+                  ? {
+                      inputComponent: PlankTime,
+                    }
+                  : { inputComponent: ExerciseReps }
+              }
             />
           </div>
           <div className={styles.submitButton}>

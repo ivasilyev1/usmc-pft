@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import EventTotalClass from "./EventTotalClass";
 import { getTestScores } from "../../util/API";
 import { Typography } from "@material-ui/core";
 
@@ -16,12 +17,12 @@ const eventLookup = {
   cft: {},
 };
 
-const ScoreDisplay = ({ eventData, type }, props) => {
+const ScoreDisplay = ({
+  eventData: { cardio, upperBody, abdominal },
+  eventData,
+  type,
+}) => {
   const [scores, setScores] = useState({});
-  const eventTitles = eventLookup[type];
-  const cardio = eventTitles[eventData.cardio];
-  const upperBody = eventTitles[eventData.upperBody];
-  const abdominal = eventTitles[eventData.abdominal];
 
   useEffect(() => {
     const getScores = async (type, eventData) => {
@@ -31,44 +32,44 @@ const ScoreDisplay = ({ eventData, type }, props) => {
     getScores(type, eventData);
   }, [type, eventData]);
 
-  if (!scores.score) {
+  const { score } = scores;
+  if (!score || !score[cardio] || !score[upperBody] || !score[abdominal]) {
     return (
       <div className={styles.container}>
         <Typography variant="h4">Loading Score</Typography>
       </div>
     );
   }
-  const { score } = scores;
+
+  const eventTitles = eventLookup[type];
+  const cardioTitle = eventTitles[cardio];
+  const upperBodyTitle = eventTitles[upperBody];
+  const abdominalTitle = eventTitles[abdominal];
+  const { total } = score;
   return (
     <div className={styles.container}>
       <div className={styles.scoreRow}>
-        <Typography>{cardio}</Typography>
+        <Typography>{cardioTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[eventData.cardio].score}
-          / ${score[eventData.cardio].max}`}
+          {`${score[cardio].score}
+            / ${score[cardio].max}`}
         </Typography>
       </div>
       <div className={styles.scoreRow}>
-        <Typography>{upperBody}</Typography>
+        <Typography>{upperBodyTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[eventData.upperBody].score}
-          / ${score[eventData.upperBody].max}`}
+          {`${score[upperBody].score}
+            / ${score[upperBody].max}`}
         </Typography>
       </div>
       <div className={styles.scoreRow}>
-        <Typography>{abdominal}</Typography>
+        <Typography>{abdominalTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[eventData.abdominal].score}
-          / ${score[eventData.abdominal].max}`}
+          {`${score[abdominal].score}
+            / ${score[abdominal].max}`}
         </Typography>
       </div>
-      <div className={styles.totalScore}>
-        <Typography variant="h4">Total</Typography>
-        <Typography variant="h4">{`${score.total.score}`}</Typography>
-      </div>
-      <div className={styles.classDisplay}>
-        <Typography variant="h6">Class</Typography>
-      </div>
+      <EventTotalClass total={total} />
     </div>
   );
 };

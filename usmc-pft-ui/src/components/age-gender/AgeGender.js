@@ -10,7 +10,8 @@ const AgeGender = (props) => {
       <TextField
         id="age"
         name="age"
-        type="text"
+        type="number"
+        required
         inputProps={{
           min: 17,
           max: 99,

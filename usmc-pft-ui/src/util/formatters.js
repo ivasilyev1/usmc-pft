@@ -10,3 +10,13 @@ export const ExerciseReps = (props) => {
   const { inputRef, ...rest } = props;
   return <Cleave options={{ numericOnly: true }} {...rest} />;
 };
+
+export const PlankTime = (props) => {
+  const { inputRef, ...rest } = props;
+  return (
+    <Cleave
+      options={{ numericOnly: true, delimiter: ":", blocks: [1, 2] }}
+      {...rest}
+    />
+  );
+};

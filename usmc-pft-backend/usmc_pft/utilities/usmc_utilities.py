@@ -31,7 +31,7 @@ def get_total_pft_score_and_class(scores):
     auto_fail = True if 0 in [cardio, abdominal, upper_body] else False
     total = cardio + abdominal + upper_body
     pft_class = get_pft_class(total, auto_fail)
-    return {"score": total, "class": pft_class}
+    return {"score": total, "eventClass": pft_class}
 
 def get_pft_class(score, auto_fail):
     if(score < 150 or auto_fail):

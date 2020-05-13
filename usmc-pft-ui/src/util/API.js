@@ -16,17 +16,17 @@ const request = async (endpoint, method, body) => {
 export const getTestScores = async (test, scores) => {
   const endpoint = test;
   let eventScores = {};
-  console.log(scores);
+  //console.log(scores);
   eventScores[scores.cardio] = scores.cardioTime;
   eventScores[scores.upperBody] = scores.upperBodyReps;
   eventScores[scores.abdominal] = scores.abReps;
   eventScores["age"] = scores.age;
   eventScores["high_alt"] = scores.high_alt;
   eventScores["gender"] = scores.gender;
-  console.log(eventScores);
+  //console.log(eventScores);
   const body = JSON.stringify(eventScores);
   let response = await request(endpoint, "POST", body);
-  console.log(response);
+  //console.log(response);
   return response;
   //console.log(response);
 };
