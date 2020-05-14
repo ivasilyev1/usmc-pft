@@ -15,9 +15,9 @@ Follow your operating sysystem sepcific instructions to install Node.
 Once Node is installed, navigate to your local repository base and run the following commands to start the frontend:
 
 ```
-cd usmc-pft/usmc-pft-ui/       //Navigate to the root of the frontend.
-npm i                 //Install application dependencies.
-npm start             //Launch the development server.
+cd usmc-pft/usmc-pft-ui/  //Navigate to the root of the frontend.
+npm i                    //Install application dependencies.
+npm start                //Launch the development server.
 ```
 
 The frontend should automatically start in your browser. If it doesn't, open your browser and navigate to:
