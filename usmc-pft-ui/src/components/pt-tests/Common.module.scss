@@ -1,4 +1,7 @@
 .container {
+  width: 55%;
+}
+.formContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,8 +13,8 @@
   margin-top: 10px;
   label {
     display: inline-block;
-    text-align: center !important;
-    width: 200px !important;
+    text-align: left !important;
+    width: 175px !important;
     margin-right: -25px !important;
   }
   input {
@@ -24,4 +27,10 @@
 .submitButton {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 475px) {
+  .container {
+    width: 100%;
+  }
 }

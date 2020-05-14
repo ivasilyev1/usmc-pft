@@ -1,9 +1,14 @@
+.pickItem {
+  display: flex;
+  flex-direction: row;
+}
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 25px;
   margin-bottom: 25px;
+  width: 85%;
   input,
   select {
     max-width: 50px !important;
@@ -12,5 +17,18 @@
   p {
     margin-left: 15px !important;
     margin-right: 5px !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    :last-child {
+      margin-bottom: 0px !important;
+    }
+    .pickItem {
+      margin-bottom: 15px;
+    }
   }
 }

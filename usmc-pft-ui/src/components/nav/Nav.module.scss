@@ -4,3 +4,13 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.paperContainer {
+  width: 85%;
+}
+
+@media screen and (max-width: 475px) {
+  .paperContainer {
+    width: 100%;
+  }
+}

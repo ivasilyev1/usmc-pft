@@ -5,3 +5,9 @@
   flex-direction: column;
   margin-top: 30px;
 }
+
+@media screen and (max-width: 720px) {
+  .container {
+    margin-top: 5px;
+  }
+}
