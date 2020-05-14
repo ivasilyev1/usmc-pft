@@ -1,9 +1,11 @@
 import React from "react";
+import CountUp from "react-countup";
 import { Typography } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
 import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
 import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
+
 import styles from "./ScoreDisplay.module.scss";
 
 const classLookup = {
@@ -32,14 +34,15 @@ const EventTotalClass = ({ total: { score, eventClass } }) => {
   const classColor = colorLookup[eventClass];
   const classIcon = iconLookup[eventClass];
 
+  const countUp = <CountUp start={0} end={score} duration={1} />;
+
   return (
     <div className={styles.container}>
       <div className={styles.totalScore}>
         <Typography variant="h4">Total:</Typography>
-        <Typography
-          variant="h4"
-          style={{ color: classColor }}
-        >{`${score}`}</Typography>
+        <Typography variant="h4" style={{ color: classColor }}>
+          {countUp}
+        </Typography>
       </div>
       <div className={styles.container} style={{ color: classColor }}>
         {classIcon}

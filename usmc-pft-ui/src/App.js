@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, HashRouter } from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import { About, CFT, NavBar, PFT } from "./components";
 
 import styles from "./App.module.scss";
@@ -7,14 +7,14 @@ import styles from "./App.module.scss";
 class App extends Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <NavBar />
         <div className={styles.container}>
           <Route exact path="/" component={About} />
           <Route path="/pft" component={PFT} />
           <Route path="/cft" component={CFT} />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
