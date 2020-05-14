@@ -1,5 +1,5 @@
 .container {
-  width: 55%;
+  width: 30%;
 }
 .formContainer {
   display: flex;
@@ -27,6 +27,12 @@
 .submitButton {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 65%;
+  }
 }
 
 @media screen and (max-width: 475px) {

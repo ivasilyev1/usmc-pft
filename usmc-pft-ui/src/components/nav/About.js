@@ -11,7 +11,7 @@ const MARADMINLink =
 
 const About = (props) => {
   return (
-    <div className={styles.container} style={{ width: "75%" }}>
+    <div className={styles.container} style={{ width: "50%" }}>
       <Paper elevation={3} style={{ width: "75%", padding: "30px" }}>
         <div className={styles.container} style={{ marginTop: "10px" }}>
           <Typography variant="h6">
