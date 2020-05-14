@@ -5,6 +5,14 @@
   flex-direction: column;
 }
 
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
 .paperContainer {
   width: 85%;
 }

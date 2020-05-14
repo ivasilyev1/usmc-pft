@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Paper } from "@material-ui/core";
+import { Typography, Paper, Button } from "@material-ui/core";
 
 import styles from "./Nav.module.scss";
 
@@ -13,25 +13,25 @@ const About = (props) => {
   return (
     <div className={styles.container} style={{ width: "75%" }}>
       <Paper elevation={3} style={{ width: "75%", padding: "30px" }}>
-        <div className={styles.container} style={{ marginTop: "20px" }}>
-          <Typography variant="body2">
-            A simple PFT and CFT Calculator.
+        <div className={styles.container} style={{ marginTop: "10px" }}>
+          <Typography variant="h6">
+            <u>A simple PFT and CFT Calculator</u>
           </Typography>
         </div>
         <div style={{ marginTop: "30px" }}>
           <Typography variant="body2">
             Click the tabs above to navigate to the appropriate calculator, or
             access the calculator you want directly by using the following
-            links:
+            buttons:
           </Typography>
         </div>
-        <div className={styles.container} style={{ marginTop: "20px" }}>
-          <Typography variant="body2">
-            PFT Calculator: <a href="/PFT">www.usmc-pft.com/PFT</a>
-          </Typography>
-          <Typography variant="body2" style={{ marginTop: "10px" }}>
-            CFT Calculator: <a href="/CFT">www.usmc-pft.com/CFT</a>
-          </Typography>
+        <div className={styles.buttonContainer}>
+          <Button color="primary" type="submit" variant="contained" href="/PFT">
+            PFT Calculator
+          </Button>
+          <Button color="primary" type="submit" variant="contained" href="/CFT">
+            CFT Calculator
+          </Button>
         </div>
         <div style={{ marginTop: "30px" }}>
           <Typography variant="h6">
