@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, TextField, Select, Paper } from "@material-ui/core";
-import { RunRowTime, ExerciseReps, PlankTime } from "../../util/formatters";
+import { RunRowTime, ExerciseReps, EventTime } from "../../util/formatters";
 import { AgeGender, ScoreDisplay } from "../";
 
 import styles from "./Common.module.scss";
@@ -99,7 +99,7 @@ const PFT = (props) => {
                 InputProps={
                   plankSelect
                     ? {
-                        inputComponent: PlankTime,
+                        inputComponent: EventTime,
                       }
                     : { inputComponent: ExerciseReps }
                 }
