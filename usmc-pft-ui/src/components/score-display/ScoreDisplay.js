@@ -40,6 +40,17 @@ const ScoreDisplay = ({
   }, [type, eventData]);
 
   const { score } = scores;
+  if (score && score.error) {
+    return (
+      <div className={styles.errorContainer}>
+        <Typography variant="body2">
+          {score.error}
+          <a href="mailto: admin@usmcpft.com">admin@usmcpft.com.</a>
+        </Typography>
+      </div>
+    );
+  }
+
   if (
     !score ||
     !score[firstEvent] ||
