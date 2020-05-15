@@ -1,29 +1,28 @@
 import React, { useState } from "react";
-import {
-  Button,
-  TextField,
-  Select,
-  Paper,
-  Typography,
-} from "@material-ui/core";
+import { Button, TextField, Paper, Typography } from "@material-ui/core";
 import { ExerciseReps, EventTime } from "../../util/formatters";
 import { AgeGender, ScoreDisplay } from "../";
 
 import styles from "./Common.module.scss";
+
 const CFT = (props) => {
   const [eventData, setEventData] = useState({});
   const [showScore, setShowScore] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    formData.append("firstEvent", "mtc");
+    formData.append("secondEvent", "muf");
+    formData.append("thirdEvent", "ammo");
+    setEventData(Object.fromEntries(formData));
+    setShowScore(true);
+  };
+
   return (
     <div className={styles.container}>
       <Paper elevation={3}>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log(Object.fromEntries(new FormData(e.target)));
-            setEventData(Object.fromEntries(new FormData(e.target)));
-            setShowScore(true);
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <div className={styles.formContainer}>
             <AgeGender />
             <div className={styles.formRow}>
@@ -31,8 +30,8 @@ const CFT = (props) => {
                 <Typography>Movement to Contact</Typography>
               </label>
               <TextField
-                id="mtcTime"
-                name="mtcTime"
+                id="mtc"
+                name="mtc"
                 type="text"
                 placeholder="m:ss"
                 required
@@ -47,8 +46,8 @@ const CFT = (props) => {
                 <Typography>Maneuver Under Fire</Typography>
               </label>
               <TextField
-                id="mufTime"
-                name="mufTime"
+                id="muf"
+                name="muf"
                 placeholder="m:ss"
                 type="text"
                 required
@@ -63,8 +62,8 @@ const CFT = (props) => {
                 <Typography>Ammo-can Lifts</Typography>
               </label>
               <TextField
-                id="ammoReps"
-                name="ammoReps"
+                id="ammo"
+                name="ammo"
                 type="text"
                 required
                 inputProps={{ maxLength: 3 }}
@@ -76,11 +75,10 @@ const CFT = (props) => {
                 Calculate Score
               </Button>
             </div>
-            <div>
-              {showScore ? (
-                <ScoreDisplay eventData={eventData} type="pft" />
-              ) : null}
-            </div>
+
+            {showScore ? (
+              <ScoreDisplay eventData={eventData} type="cft" />
+            ) : null}
           </div>
         </form>
       </Paper>

@@ -13,20 +13,28 @@ const request = async (endpoint, method, body) => {
   return response.json();
 };
 
-export const getTestScores = async (test, scores) => {
-  const endpoint = test;
+export const getPFTScores = async (scores) => {
   let eventScores = {};
-  //console.log(scores);
-  eventScores[scores.cardio] = scores.cardioTime;
-  eventScores[scores.upperBody] = scores.upperBodyReps;
-  eventScores[scores.abdominal] = scores.abReps;
+  eventScores[scores.firstEvent] = scores.firstEventCount;
+  eventScores[scores.secondEvent] = scores.secondEventCount;
+  eventScores[scores.thirdEvent] = scores.thirdEventCount;
   eventScores["age"] = scores.age;
   eventScores["high_alt"] = scores.high_alt;
   eventScores["gender"] = scores.gender;
-  //console.log(eventScores);
   const body = JSON.stringify(eventScores);
-  let response = await request(endpoint, "POST", body);
-  //console.log(response);
+  let response = await request("pft", "POST", body);
   return response;
-  //console.log(response);
+};
+
+export const getCFTScores = async (scores) => {
+  const body = JSON.stringify({
+    mtc: scores.mtc,
+    muf: scores.muf,
+    ammo: scores.ammo,
+    age: scores.age,
+    high_alt: scores.high_alt,
+    gender: scores.gender,
+  });
+  let response = await request("cft", "POST", body);
+  return response;
 };

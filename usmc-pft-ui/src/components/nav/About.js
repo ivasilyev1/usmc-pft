@@ -11,11 +11,13 @@ const MARADMINLink =
 
 const About = (props) => {
   return (
-    <div className={styles.paperContainer}>
+    <div className={styles.aboutContainer}>
       <Paper elevation={3} style={{ padding: "30px" }}>
         <div className={styles.container} style={{ marginTop: "10px" }}>
-          <Typography variant="h6">
-            <u>A simple PFT and CFT Calculator</u>
+          <Typography variant="body1">
+            <u>
+              <strong>A simple PFT and CFT Calculator</strong>
+            </u>
           </Typography>
         </div>
         <div style={{ marginTop: "30px" }}>
@@ -57,9 +59,8 @@ const About = (props) => {
         <div style={{ marginTop: "30px" }}>
           <Typography variant="h6">How are the scores calculated?</Typography>
           <Typography variant="body2">
-            Scores are calculated in accordance with the{" "}
-            <strong>publicly</strong> available official documentation and score
-            tables published by HQMC at{" "}
+            Scores are calculated based on the publicly available official
+            documentation and score tables published by HQMC at{" "}
             <a href={fitnessLink}>fitness.marines.mil</a>, which are formalized
             in <a href={MCOLink}>Marine Corps Order 6100.13A W/CH 2</a>, and{" "}
             <a href={MARADMINLink}>MARADMIN 330/19</a>.

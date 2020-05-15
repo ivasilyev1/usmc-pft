@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EventTotalClass from "./EventTotalClass";
-import { getTestScores } from "../../util/API";
+import { getPFTScores, getCFTScores } from "../../util/API";
 import { Typography } from "@material-ui/core";
 
 import styles from "./ScoreDisplay.module.scss";
@@ -14,11 +14,15 @@ const eventLookup = {
     crunches: "Crunches",
     plank: "Plank",
   },
-  cft: {},
+  cft: {
+    mtc: "Movement to Contact",
+    muf: "Maneuver Under Fire",
+    ammo: "Ammo-can Lift",
+  },
 };
 
 const ScoreDisplay = ({
-  eventData: { cardio, upperBody, abdominal },
+  eventData: { firstEvent, secondEvent, thirdEvent },
   eventData,
   type,
 }) => {
@@ -26,14 +30,22 @@ const ScoreDisplay = ({
 
   useEffect(() => {
     const getScores = async (type, eventData) => {
-      const scoreResponse = await getTestScores(type, eventData);
+      const scoreResponse =
+        type === "pft"
+          ? await getPFTScores(eventData)
+          : await getCFTScores(eventData);
       setScores(scoreResponse);
     };
     getScores(type, eventData);
   }, [type, eventData]);
 
   const { score } = scores;
-  if (!score || !score[cardio] || !score[upperBody] || !score[abdominal]) {
+  if (
+    !score ||
+    !score[firstEvent] ||
+    !score[secondEvent] ||
+    !score[thirdEvent]
+  ) {
     return (
       <div className={styles.container}>
         <Typography variant="h4">Loading Score</Typography>
@@ -42,31 +54,31 @@ const ScoreDisplay = ({
   }
 
   const eventTitles = eventLookup[type];
-  const cardioTitle = eventTitles[cardio];
-  const upperBodyTitle = eventTitles[upperBody];
-  const abdominalTitle = eventTitles[abdominal];
+  const firstEventTitle = eventTitles[firstEvent];
+  const secondEventTitle = eventTitles[secondEvent];
+  const thirdEventTitle = eventTitles[thirdEvent];
   const { total } = score;
   return (
     <div className={styles.container}>
       <div className={styles.scoreRow}>
-        <Typography>{cardioTitle}</Typography>
+        <Typography>{firstEventTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[cardio].score}
-            / ${score[cardio].max}`}
+          {`${score[firstEvent].score}
+            / ${score[firstEvent].max}`}
         </Typography>
       </div>
       <div className={styles.scoreRow}>
-        <Typography>{upperBodyTitle}</Typography>
+        <Typography>{secondEventTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[upperBody].score}
-            / ${score[upperBody].max}`}
+          {`${score[secondEvent].score}
+            / ${score[secondEvent].max}`}
         </Typography>
       </div>
       <div className={styles.scoreRow}>
-        <Typography>{abdominalTitle}</Typography>
+        <Typography>{thirdEventTitle}</Typography>
         <Typography id={styles.score}>
-          {`${score[abdominal].score}
-            / ${score[abdominal].max}`}
+          {`${score[thirdEvent].score}
+            / ${score[thirdEvent].max}`}
         </Typography>
       </div>
       <EventTotalClass total={total} />

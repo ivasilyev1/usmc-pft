@@ -13,14 +13,21 @@
   margin-top: 20px;
 }
 
-.paperContainer {
+.navContainer {
   width: 65%;
 }
+.aboutContainer {
+  width: 45%;
+}
 
-@media screen and (max-width: 600px) {
-  .paperContainer {
+@media screen and (max-width: 880px) {
+  .navContainer,
+  .aboutContainer {
     width: 100%;
   }
+}
+
+@media screen and (max-width: 420px) {
   .buttonContainer {
     flex-direction: column;
     a {

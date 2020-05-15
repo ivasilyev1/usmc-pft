@@ -1,6 +1,7 @@
 .container {
   width: 30%;
 }
+
 .formContainer {
   display: flex;
   align-items: center;
@@ -36,13 +37,13 @@
   margin-bottom: 20px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
   .container {
     width: 65%;
   }
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 700px) {
   .container {
     width: 100%;
   }

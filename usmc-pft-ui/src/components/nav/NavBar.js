@@ -13,7 +13,7 @@ const NavBar = (props) => {
   const location = useLocation();
   return (
     <div className={styles.container}>
-      <Paper className={styles.paperContainer}>
+      <Paper className={styles.navContainer}>
         <Tabs
           value={location.pathname.toUpperCase()}
           onChange={handleChange}

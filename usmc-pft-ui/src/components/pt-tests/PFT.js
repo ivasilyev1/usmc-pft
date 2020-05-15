@@ -12,9 +12,7 @@ const PFT = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setPlankSelect(e.target.value === "plank");
-    console.log(plankSelect);
   };
 
   return (
@@ -32,7 +30,7 @@ const PFT = (props) => {
             <div className={styles.formRow}>
               <label>
                 <Select
-                  name="cardio"
+                  name="firstEvent"
                   defaultValue={"run"}
                   disableUnderline
                   native
@@ -42,8 +40,8 @@ const PFT = (props) => {
                 </Select>
               </label>
               <TextField
-                id="cardioTime"
-                name="cardioTime"
+                id="firstEventCount"
+                name="firstEventCount"
                 type="text"
                 placeholder="mm:ss"
                 required
@@ -56,7 +54,7 @@ const PFT = (props) => {
             <div className={styles.formRow}>
               <label>
                 <Select
-                  name="upperBody"
+                  name="secondEvent"
                   defaultValue={"pullups"}
                   disableUnderline
                   native
@@ -66,8 +64,8 @@ const PFT = (props) => {
                 </Select>
               </label>
               <TextField
-                id="upperBodyReps"
-                name="upperBodyReps"
+                id="secondEventCount"
+                name="secondEventCount"
                 type="text"
                 required
                 inputProps={{ maxLength: 3 }}
@@ -79,7 +77,7 @@ const PFT = (props) => {
             <div className={styles.formRow}>
               <label>
                 <Select
-                  name="abdominal"
+                  name="thirdEvent"
                   defaultValue={"crunches"}
                   onChange={handleChange}
                   disableUnderline
@@ -90,8 +88,8 @@ const PFT = (props) => {
                 </Select>
               </label>
               <TextField
-                id="abReps"
-                name="abReps"
+                id="thirdEventCount"
+                name="thirdEventCount"
                 type="text"
                 required
                 placeholder={plankSelect ? "m:ss" : null}
