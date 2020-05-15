@@ -1,5 +1,5 @@
 from usmc_pft import app, db
-from usmc_pft.models import *
+from usmc_pft.models.pft_models import *
 from usmc_pft.utilities.usmc_utilities import *
    
 def get_pft_score(request_body):
@@ -38,7 +38,7 @@ def get_pft_score(request_body):
         scores["crunches"]["max"] = 100
     if(plank is not None):
         age = 17
-        plank_time = get_plank_time_to_seconds(plank)
+        plank_time = get_time_to_seconds(plank)
         scores["plank"] = {}
         scores["plank"]["score"] = get_pft_plank(age, gender, plank_time)
         scores["plank"]["max"] = 100

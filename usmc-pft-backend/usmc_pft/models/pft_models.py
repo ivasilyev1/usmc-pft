@@ -50,4 +50,3 @@ class Pushups(db.Model):
     age = db.Column(db.Integer, unique=False, nullable=False)
     reps = db.Column(db.Integer, unique=False, nullable=False)
     score = db.Column(db.Integer, unique=False, nullable=False)
-    
