@@ -17,8 +17,14 @@
   width: 65%;
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 600px) {
   .paperContainer {
     width: 100%;
+  }
+  .buttonContainer {
+    flex-direction: column;
+    a {
+      margin-top: 5px !important;
+    }
   }
 }

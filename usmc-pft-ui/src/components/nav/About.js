@@ -11,8 +11,8 @@ const MARADMINLink =
 
 const About = (props) => {
   return (
-    <div className={styles.container} style={{ width: "50%" }}>
-      <Paper elevation={3} style={{ width: "75%", padding: "30px" }}>
+    <div className={styles.paperContainer}>
+      <Paper elevation={3} style={{ padding: "30px" }}>
         <div className={styles.container} style={{ marginTop: "10px" }}>
           <Typography variant="h6">
             <u>A simple PFT and CFT Calculator</u>
