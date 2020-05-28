@@ -16,7 +16,7 @@ const About = (props) => {
         <div className={styles.container} style={{ marginTop: "10px" }}>
           <Typography variant="body1">
             <u>
-              <strong>A simple PFT and CFT Calculator</strong>
+              <strong>PFT and CFT Calculators</strong>
             </u>
           </Typography>
         </div>

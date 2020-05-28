@@ -8,7 +8,7 @@ from usmc_pft.data_access.cft_data_access import get_cft_score
 error_message = {"error": "Unable to process your score data. Please verify your inputs and try again. If the error persists please contact "}
 
 @app.route("/api/pft", methods=['POST'])
-@cross_origin(origin="localhost")
+@cross_origin(origins="http://localhost:*")
 def usmc_pft():
     request_body = request.get_json()
     score = None
@@ -19,7 +19,7 @@ def usmc_pft():
     return jsonify({"score" : score}), 200
 
 @app.route("/api/cft", methods=['POST'])
-@cross_origin(origin='localhost')
+@cross_origin(origins="http://localhost:*")
 def usmc_cft():
     request_body = request.get_json()
     score = None

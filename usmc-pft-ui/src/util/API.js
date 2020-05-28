@@ -4,6 +4,7 @@ const requestHeaders = {
 };
 
 const request = async (endpoint, method, body) => {
+  //const url = `https://usmcpft.com/api/${endpoint}`;
   const url = `http://127.0.0.1:5000/api/${endpoint}`;
   let response = await fetch(url, {
     headers: requestHeaders,
