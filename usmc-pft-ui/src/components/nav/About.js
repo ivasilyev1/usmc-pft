@@ -1,5 +1,12 @@
 import React from "react";
-import { Typography, Paper, Button } from "@material-ui/core";
+import {
+  Typography,
+  Paper,
+  Button,
+  IconButton,
+  Tooltip,
+} from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import styles from "./Nav.module.scss";
 
@@ -8,11 +15,19 @@ const MCOLink =
   "https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/2052205/mco-610013a-wch-2/";
 const MARADMINLink =
   "https://www.marines.mil/News/Messages/MARADMINS/Article/1869148/forthcoming-change-to-the-physical-fitness-test-pft/";
+const githubLink = "https://github.com/ivasilyev1/usmc-pft";
 
 const About = (props) => {
   return (
     <div className={styles.aboutContainer}>
       <Paper elevation={3} style={{ padding: "30px" }}>
+        <div className={styles.git}>
+          <Tooltip title="View Code">
+            <IconButton size="small" target="_blank" href={githubLink}>
+              <GitHubIcon color="disabled" />
+            </IconButton>
+          </Tooltip>
+        </div>
         <div className={styles.container} style={{ marginTop: "10px" }}>
           <Typography variant="body1">
             <u>
