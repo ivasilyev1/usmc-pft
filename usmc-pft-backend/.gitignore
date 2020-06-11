@@ -1,5 +1,6 @@
-cftmatrix.txt
-matrix-loader.py
-matrix.txt
+score-loader.py
+cftscores.txt
+pftscores.txt
+usmc-pft.db
 env
 __pycache__
