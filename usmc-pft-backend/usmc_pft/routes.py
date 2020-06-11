@@ -5,6 +5,7 @@ from usmc_pft import app, db
 from usmc_pft.data_access.pft_data_access import get_pft_score
 from usmc_pft.data_access.cft_data_access import get_cft_score
 
+# Email address is added by frontend to create a "mailto:" <a> tag.
 error_message = {"error": "Unable to process your score data. Please verify your inputs and try again. If the error persists please contact "}
 
 @app.route("/api/pft", methods=['POST'])
