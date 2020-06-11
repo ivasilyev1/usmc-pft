@@ -15,16 +15,16 @@ const PFT = (props) => {
     setPlankSelect(e.target.value === "plank");
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEventData(Object.fromEntries(new FormData(e.target)));
+    setShowScore(true);
+  };
+
   return (
     <div className={styles.container}>
       <Paper elevation={3}>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setEventData(Object.fromEntries(new FormData(e.target)));
-            setShowScore(true);
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <div className={styles.formContainer}>
             <AgeGender />
             <div className={styles.formRow}>
@@ -45,7 +45,7 @@ const PFT = (props) => {
                 type="text"
                 placeholder="mm:ss"
                 required
-                inputProps={{ maxLength: 5 }}
+                inputProps={{ maxLength: 5, inputMode: "numeric" }}
                 InputProps={{
                   inputComponent: RunRowTime,
                 }}
@@ -67,8 +67,9 @@ const PFT = (props) => {
                 id="secondEventCount"
                 name="secondEventCount"
                 type="text"
+                placeholder="reps"
                 required
-                inputProps={{ maxLength: 3 }}
+                inputProps={{ maxLength: 2, inputMode: "numeric" }}
                 InputProps={{
                   inputComponent: ExerciseReps,
                 }}
@@ -91,9 +92,12 @@ const PFT = (props) => {
                 id="thirdEventCount"
                 name="thirdEventCount"
                 type="text"
+                placeholder={plankSelect ? "m:ss" : "reps"}
                 required
-                placeholder={plankSelect ? "m:ss" : null}
-                inputProps={{ maxLength: 4 }}
+                inputProps={{
+                  maxLength: plankSelect ? 4 : 3,
+                  inputMode: "numeric",
+                }}
                 InputProps={
                   plankSelect
                     ? {

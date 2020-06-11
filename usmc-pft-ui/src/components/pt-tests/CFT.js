@@ -12,6 +12,7 @@ const CFT = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
+    // Appending additional entries to match the expected format of ScoreDisplay.js
     formData.append("firstEvent", "mtc");
     formData.append("secondEvent", "muf");
     formData.append("thirdEvent", "ammo");
@@ -35,7 +36,7 @@ const CFT = (props) => {
                 type="text"
                 placeholder="m:ss"
                 required
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ maxLength: 4, inputMode: "numeric" }}
                 InputProps={{
                   inputComponent: EventTime,
                 }}
@@ -51,7 +52,7 @@ const CFT = (props) => {
                 placeholder="m:ss"
                 type="text"
                 required
-                inputProps={{ maxLength: 4 }}
+                inputProps={{ maxLength: 4, inputMode: "numeric" }}
                 InputProps={{
                   inputComponent: EventTime,
                 }}
@@ -65,8 +66,9 @@ const CFT = (props) => {
                 id="ammo"
                 name="ammo"
                 type="text"
+                placeholder="reps"
                 required
-                inputProps={{ maxLength: 3 }}
+                inputProps={{ maxLength: 3, inputMode: "numeric" }}
                 InputProps={{ inputComponent: ExerciseReps }}
               />
             </div>

@@ -5,6 +5,7 @@ import { Typography } from "@material-ui/core";
 
 import styles from "./ScoreDisplay.module.scss";
 
+// Display the long-title depending on what eventData was passed in props
 const eventLookup = {
   pft: {
     run: "Three Mile Run",
@@ -51,6 +52,8 @@ const ScoreDisplay = ({
     );
   }
 
+  // Account for conditions where a user might change form drop-downs and resubmit
+  // without refreshing the page, as well as while waiting API response.
   if (
     !score ||
     !score[firstEvent] ||

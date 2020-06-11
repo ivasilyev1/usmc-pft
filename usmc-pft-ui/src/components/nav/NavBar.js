@@ -5,17 +5,16 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Nav.module.scss";
 
 const NavBar = (props) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(useLocation().pathname.toUpperCase());
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const location = useLocation();
   return (
     <div className={styles.container}>
       <Paper className={styles.navContainer}>
         <Tabs
-          value={location.pathname.toUpperCase()}
+          value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"

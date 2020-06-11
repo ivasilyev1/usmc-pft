@@ -16,10 +16,10 @@ const classLookup = {
 };
 
 const colorLookup = {
-  1: "#388e3c",
-  2: "#CCCC00",
-  3: "#FF8300",
-  0: "#FF0000",
+  1: "#388e3c", //Green 1st Class color
+  2: "#CCCC00", //Yellow 2nd Class color
+  3: "#FF8300", //Orange 3rd Class color
+  0: "#FF0000", //Red event failure color
 };
 
 const iconLookup = {
@@ -34,14 +34,12 @@ const EventTotalClass = ({ total: { score, eventClass } }) => {
   const classColor = colorLookup[eventClass];
   const classIcon = iconLookup[eventClass];
 
-  const countUp = <CountUp start={0} end={score} duration={1} />;
-
   return (
     <div className={styles.container}>
       <div className={styles.totalScore}>
         <Typography variant="h4">Total:</Typography>
         <Typography variant="h4" style={{ color: classColor }}>
-          {countUp}
+          <CountUp start={0} end={score} duration={1} />
         </Typography>
       </div>
       <div className={styles.container} style={{ color: classColor }}>
