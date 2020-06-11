@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import { About, CFT, NavBar, PFT } from "./components";
 
 import styles from "./App.module.scss";

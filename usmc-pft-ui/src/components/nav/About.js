@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  Typography,
-  Paper,
   Button,
   IconButton,
+  Paper,
   Tooltip,
+  Typography,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 

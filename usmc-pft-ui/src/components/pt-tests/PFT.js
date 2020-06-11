@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, TextField, Select, Paper } from "@material-ui/core";
-import { RunRowTime, ExerciseReps, EventTime } from "../../util/formatters";
+import { Button, Paper, Select, TextField } from "@material-ui/core";
 import { AgeGender, ScoreDisplay } from "../";
+import { EventTime, ExerciseReps, RunRowTime } from "../../util/formatters";
 
 import styles from "./Common.module.scss";
 

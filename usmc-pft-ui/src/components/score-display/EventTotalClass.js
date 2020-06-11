@@ -1,10 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
-import { Typography } from "@material-ui/core";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CancelOutlinedIcon from "@material-ui/icons/CancelOutlined";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
 import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
+import { Typography } from "@material-ui/core";
 
 import styles from "./ScoreDisplay.module.scss";
 

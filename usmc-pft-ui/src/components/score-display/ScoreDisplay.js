@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import EventTotalClass from "./EventTotalClass";
-import { getPFTScores, getCFTScores } from "../../util/API";
+import { getCFTScores, getPFTScores } from "../../util/API";
 import { Typography } from "@material-ui/core";
 
 import styles from "./ScoreDisplay.module.scss";

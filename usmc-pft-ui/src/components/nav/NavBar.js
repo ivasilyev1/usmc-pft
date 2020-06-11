@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Paper, Tab, Tabs } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
-import { Paper, Tabs, Tab } from "@material-ui/core";
 
 import styles from "./Nav.module.scss";
 
