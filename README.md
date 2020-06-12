@@ -1,6 +1,11 @@
 # USMC-PFT
 
-A calculator for the USMC's PFT and CFT events.
+An online calculator for the Marine Corps' PFT and CFT events. Currently deployed live at https://usmcpft.com
+
+## Desktop demo
+
+
+
 
 # Setup for development and testing
 
