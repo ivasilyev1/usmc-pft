@@ -32,9 +32,10 @@ def shorter_than_min_plank(age, gender, time):
     return time < min_score.time
 
 def above_max_reps(age, gender, reps, event):
+    max_points = 70 if event == Pushups else 100
     max_score = event.query.filter((event.age == age)
                                    & (event.gender == gender)
-                                   & (event.score == 100)).first()
+                                   & (event.score == max_points)).first()
     return reps > max_score.reps
 
 def below_min_reps(age, gender, reps, event):
