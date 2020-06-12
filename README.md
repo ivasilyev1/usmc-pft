@@ -21,7 +21,7 @@ Support is included for all events that are currently authorized:
 
 Simply enter the event time or number of repetitions and your score is calculated depicting the:
 
-- Total Points Earned / Total Points Possible, for each event (ie: xxx/100 or xxx/70)
+- Total Points Earned / Total Points Possible, for each event (ie: xxx/100 or xx/70)
 - Overall Total Points (ie: xxx/300)
 - PFT/CFT Class (1st, 2nd, 3rd, or Fail)
 
