@@ -2,9 +2,7 @@
 
 An online calculator for the Marine Corps' PFT and CFT events. Currently deployed live at https://usmcpft.com
 
-## Desktop demo
-
-![](https://media.giphy.com/media/j0AEMAYjBZyP0hsg4j/giphy.gif)
+![](https://media.giphy.com/media/j0AEMAYjBZyP0hsg4j/giphy.gif) ![](https://media.giphy.com/media/Ihmknc6Ue1rYjlZ8Ym/giphy.gif)
 
 
 
