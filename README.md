@@ -1,67 +1,40 @@
 # USMC-PFT
 
-An online calculator for the Marine Corps' PFT and CFT events. Currently deployed live at https://usmcpft.com
+An online calculator for the Marine Corps' PFT and CFT events. Currently deployed at https://usmcpft.com
 
-![](https://media.giphy.com/media/j0AEMAYjBZyP0hsg4j/giphy.gif) ![](https://media.giphy.com/media/Ihmknc6Ue1rYjlZ8Ym/giphy.gif)
+![](https://media.giphy.com/media/j0AEMAYjBZyP0hsg4j/giphy.gif)
 
+## Description
 
+This project intends to provide a simple and intuitive means of calculating scores for the Marine Corps’ Physical Fitness Test and Combat Fitness Test events.
 
-# Setup for development and testing
+Support is included for all events that are currently authorized:
 
-## Frontend
+- Physical Fitness Test
+  - Three Mile Run / Five Km Row
+  - Pullups / Pushups
+  - Crunches / Plank
+- Combat Fitness Test
+  - Movement to Contact
+  - Maneuver Under Fire
+  - Ammo Can Lifts
 
-Running the frontend requires Node and NPM, which is automatically installed alongside Node.
+Simply enter the event time or number of repetitions and your score is calculated depicting the:
 
-Node can be installed from: https://nodejs.org/en/
+- Total Points Earned / Total Points Possible, for each event (ie: xxx/100 or xxx/70)
+- Overall Total Points (ie: xxx/300)
+- PFT/CFT Class (1st, 2nd, 3rd, or Fail)
 
-Follow your operating sysystem sepcific instructions to install Node.
+The application is also responsive and should display well on mobile devices:
 
-Once Node is installed, navigate to your local repository base and run the following commands to start the frontend:
+![](https://media.giphy.com/media/Ihmknc6Ue1rYjlZ8Ym/giphy.gif)
 
-```
-cd usmc-pft/usmc-pft-ui/  //Navigate to the root of the frontend.
-npm i                    //Install application dependencies.
-npm start                //Launch the development server.
-```
+## Is this an official application?
 
-The frontend should automatically start in your browser. If it doesn't, open your browser and navigate to:
+No, this is not an official Marine Corps application, nor is it endorsed by the Marine Corps or an other government entity. It is a hobby project/website and purely serves as a convenience to calculate scores when access to the official calculator is impractical (ie: on a mobile device after running the events).
 
-```
-http://localhost:3000/
-```
+All necessary data and documentation required to calculate scores is publicly available and [published online](https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/2052205/mco-610013a-wch-2/).
 
-## Backend
+## Contributing
 
-Running the backend in development requires Python 3.6.x, and several dependencies which will be installed.
-
-Python 3 can be installed from: https://www.python.org/downloads/
-
-Follow your operating system specific instructions to install Python 3, to at least 3.6.x. The SDM backend currently uses Python 3.6.9.
-
-Once Python is installed, navigate to your local repository base and run the following commands to start the backend:
-
-### POSIX-based OS
-
-```
-cd usmc-pft/usmc-pft-backend/usmc_backend/
-python3 -m venv env
-source env/bin/activate
-```
-
-### Windows
-
-```
-cd usmc-pft\usmc-pft-backend\usmc_pft
-python3 -m venv c:\path\to\usmc-pft\env\
-c:\path\to\usmc-pft\env\Scripts\activate.bat
-```
-
-Once the Python virtual environment is activated the dependencies included in requirements.txt can be installed.
-
-```
-cd usmc-pft/usmc-pft-backend/
-pip3 install -r ./requirements.txt
-python3 run.py
-```
-
-The backend should now be running and application development/testing can begin.
+Please feel free to submit changes or make any other comments or critiques.  
