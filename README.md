@@ -4,6 +4,7 @@ An online calculator for the Marine Corps' PFT and CFT events. Currently deploye
 
 ## Desktop demo
 
+![USMC-PFT Desktop Demo](https://giphy.com/gifs/j0AEMAYjBZyP0hsg4j)
 
 
 
