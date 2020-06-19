@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Paper, Tab, Tabs } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 
 import styles from "./Nav.module.scss";
 
 const NavBar = (props) => {
-  const [value, setValue] = useState(useLocation().pathname.toUpperCase());
+  const selected = useLocation().pathname.toUpperCase();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <div className={styles.container}>
       <Paper className={styles.navContainer}>
         <Tabs
-          value={value}
-          onChange={handleChange}
+          value={selected}
           indicatorColor="primary"
           textColor="primary"
           centered

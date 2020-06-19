@@ -6,6 +6,7 @@ import {
   Tooltip,
   Typography,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 import styles from "./Nav.module.scss";
@@ -43,10 +44,22 @@ const About = (props) => {
           </Typography>
         </div>
         <div className={styles.buttonContainer}>
-          <Button color="primary" type="submit" variant="contained" href="/PFT">
+          <Button
+            color="primary"
+            type="submit"
+            variant="contained"
+            component={Link}
+            to="/PFT"
+          >
             PFT Calculator
           </Button>
-          <Button color="primary" type="submit" variant="contained" href="/CFT">
+          <Button
+            color="primary"
+            type="submit"
+            variant="contained"
+            component={Link}
+            to="/CFT"
+          >
             CFT Calculator
           </Button>
         </div>
