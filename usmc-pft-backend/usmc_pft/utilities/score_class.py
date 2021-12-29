@@ -1,20 +1,36 @@
-def get_total_pft_score_and_class(scores):
-    cardio = scores["run"]["score"] if "run" in scores.keys() else scores["row"]["score"]
-    abdominal = scores["crunches"]["score"] if "crunches" in scores.keys() else scores["plank"]["score"]
-    upper_body = scores["pullups"]["score"] if "pullups" in scores.keys() else scores["pushups"]["score"]
+from usmc_pft import app
+
+def get_total_pft_score_and_class(scores: dict) -> dict:
+    app.logger.info("Calculating total PFT score and class")
+    cardio_event = "run" if "run" in scores.keys() else "row"
+    ab_event = "crunches" if "crunches" in scores.keys() else "plank"
+    strength_event = "pullups" if "pullups" in scores.keys() else "pushups"
+
+    cardio = scores[cardio_event]["score"]
+    abdominal = scores[ab_event]["score"]
+    upper_body = scores[strength_event]["score"]
+
     auto_fail = 0 in [cardio, abdominal, upper_body]
     total = cardio + abdominal + upper_body
-    pft_class = get_pft_cft_class(total, auto_fail)
-    return {"score": total, "eventClass": pft_class}
+
+    return {
+        "score": total,
+        "eventClass": get_pft_cft_class(total, auto_fail)
+    }
 
 def get_total_cft_score_and_class(scores):
+    app.logger.info("Calculating total CFT score and class")
     mtc = scores["mtc"]["score"]
     muf = scores["muf"]["score"]
     ammo = scores["ammo"]["score"]
+
     auto_fail = 0 in [mtc, muf, ammo]
     total = mtc + muf + ammo
-    cft_class = get_pft_cft_class(total, auto_fail)
-    return {"score": total, "eventClass": cft_class}
+
+    return {
+        "score": total,
+        "eventClass": get_pft_cft_class(total, auto_fail)
+    }
 
 def get_pft_cft_class(score, auto_fail):
     if(score < 150 or auto_fail):
