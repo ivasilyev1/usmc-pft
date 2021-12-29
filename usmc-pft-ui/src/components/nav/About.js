@@ -13,7 +13,7 @@ import styles from "./Nav.module.scss";
 
 const fitnessLink = "https://www.fitness.marines.mil/pft-cft_standards17/";
 const MCOLink =
-  "https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/2052205/mco-610013a-wch-2/";
+  "https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/2524537/mco-610013a-wch-3-cancels-mco-610013a-wch-2/";
 const MARADMINLink =
   "https://www.marines.mil/News/Messages/MARADMINS/Article/1869148/forthcoming-change-to-the-physical-fitness-test-pft/";
 const githubLink = "https://github.com/ivasilyev1/usmc-pft";
@@ -90,7 +90,7 @@ const About = (props) => {
             Scores are calculated based on the publicly available official
             documentation and score tables published by HQMC at{" "}
             <a href={fitnessLink}>fitness.marines.mil</a>, which are formalized
-            in <a href={MCOLink}>Marine Corps Order 6100.13A W/CH 2</a>, and{" "}
+            in <a href={MCOLink}>Marine Corps Order 6100.13A W/CH 3</a>, and{" "}
             <a href={MARADMINLink}>MARADMIN 330/19</a>.
           </Typography>
         </div>

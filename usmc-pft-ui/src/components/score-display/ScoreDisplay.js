@@ -45,7 +45,7 @@ const ScoreDisplay = ({
     return (
       <div className={styles.errorContainer}>
         <Typography variant="body2">
-          {score.error}
+          {score.error} If the error persists please contact{" "}
           <a href="mailto: admin@usmcpft.com">admin@usmcpft.com.</a>
         </Typography>
       </div>

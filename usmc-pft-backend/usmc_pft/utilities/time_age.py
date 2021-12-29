@@ -1,25 +1,28 @@
 import math
 
-def get_run_row_time_to_seconds(run, row):
+def get_run_row_time_to_seconds(run: str, row: str) -> int:
     time = run if run else row
     time_split = time.split(":")
     minutes = int(time_split[0]) * 60
     seconds = int(time_split[1])
+
     # Run times are rounded up to the 10 second mark.
     # Row times are rounded up to the 5 second mark.
     if(run):
         seconds = int(math.ceil(seconds / 10.0)) * 10
     if(row):
-        seconds = int(math.ceil(seconds/5.0)) * 5 
+        seconds = int(math.ceil(seconds/5.0)) * 5
+
     return minutes + seconds
 
-def get_time_to_seconds(time_string):
+def get_time_to_seconds(time_string: str) -> int:
     time = time_string.split(":")
     minutes = int(time[0]) * 60
     seconds = int(time[1])
+
     return minutes + seconds
 
-def get_age_range(age):
+def get_age_range(age: int) -> int:
     # Age ranges are defined by USMC order. The scores within each range are
     # calculated the same, so for simplicity the starting age is used in each range.
     # IE: range 17 - 21 will use 17 as the age for calculations.
