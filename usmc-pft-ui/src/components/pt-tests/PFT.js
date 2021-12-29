@@ -5,6 +5,25 @@ import { EventTime, ExerciseReps, RunRowTime } from "../../util/formatters";
 
 import styles from "./Common.module.scss";
 
+const PlankWarning = () => {
+  return (
+    <blockquote className={styles.plankWarningContainer}>
+      <strong>Note: </strong>
+      <a
+        style={{ color: "red" }}
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.marines.mil/News/Messages/Messages-Display/Article/2719680/forthcoming-changes-to-the-physical-fitness-test/"
+      >
+        MARADMIN 404/21
+      </a>{" "}
+      announced upcoming changes to the min/max time(s) for the plank event to
+      take effect Jan 1st 2022. The updated scoring table has not yet been
+      released and these changes are not yet incorporated.
+    </blockquote>
+  );
+};
+
 const PFT = (props) => {
   const [eventData, setEventData] = useState({});
   const [showScore, setShowScore] = useState(false);
@@ -107,6 +126,9 @@ const PFT = (props) => {
                 }
               />
             </div>
+            <React.Fragment>
+              {plankSelect ? <PlankWarning /> : null}
+            </React.Fragment>
             <div className={styles.submitButton}>
               <Button type="submit" variant="contained" color="primary">
                 Calculate Score
