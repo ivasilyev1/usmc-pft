@@ -1,4 +1,4 @@
-from usmc_pft import app, db
+from usmc_pft import db
 
 class Movement_Contact(db.Model):
     __tablename__ = "movement_contact"
@@ -8,6 +8,8 @@ class Movement_Contact(db.Model):
     time = db.Column(db.Integer, unique=False, nullable=False)
     score = db.Column(db.Integer, unique=False, nullable=False)
     high_alt = db.Column(db.Boolean, unique=False, nullable=False)
+    max_score = 100
+    min_score = 40
 
 class Maneuver_Fire(db.Model):
     __tablename__ = "maneuver_fire"
@@ -17,6 +19,8 @@ class Maneuver_Fire(db.Model):
     time = db.Column(db.Integer, unique=False, nullable=False)
     score = db.Column(db.Integer, unique=False, nullable=False)
     high_alt = db.Column(db.Boolean, unique=False, nullable=False)
+    max_score = 100
+    min_score = 40
 
 class Ammo_Lift(db.Model):
     __tablename__ = "ammo_lift"
@@ -25,3 +29,5 @@ class Ammo_Lift(db.Model):
     age = db.Column(db.Integer, unique=False, nullable=False)
     reps = db.Column(db.Integer, unique=False, nullable=False)
     score = db.Column(db.Integer, unique=False, nullable=False)
+    max_score = 100
+    min_score = 40
