@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import EventTotalClass from "./EventTotalClass";
-import { getCFTScores, getPFTScores } from "../../util/API";
-import { Typography } from "@material-ui/core";
+import React, { useEffect, useState } from 'react';
+import EventTotalClass from './EventTotalClass';
+import { getCFTScores, getPFTScores } from '../../util/API';
+import { Typography } from '@material-ui/core';
 
-import styles from "./ScoreDisplay.module.scss";
+import styles from './ScoreDisplay.module.scss';
 
 // Display the long-title depending on what eventData was passed in props
 const eventLookup = {
   pft: {
-    run: "Three Mile Run",
-    row: "Five Km Row",
-    pullups: "Pullups",
-    pushups: "Pushups",
-    crunches: "Crunches",
-    plank: "Plank",
+    run: 'Three Mile Run',
+    row: 'Five Km Row',
+    pullups: 'Pullups',
+    pushups: 'Pushups',
+    crunches: 'Crunches',
+    plank: 'Plank',
   },
   cft: {
-    mtc: "Movement to Contact",
-    muf: "Maneuver Under Fire",
-    ammo: "Ammo-can Lift",
+    mtc: 'Movement to Contact',
+    muf: 'Maneuver Under Fire',
+    ammo: 'Ammo-can Lift',
   },
 };
 
@@ -32,7 +32,7 @@ const ScoreDisplay = ({
   useEffect(() => {
     const getScores = async (type, eventData) => {
       const scoreResponse =
-        type === "pft"
+        type === 'pft'
           ? await getPFTScores(eventData)
           : await getCFTScores(eventData);
       setScores(scoreResponse);
@@ -44,9 +44,9 @@ const ScoreDisplay = ({
   if (score && score.error) {
     return (
       <div className={styles.errorContainer}>
-        <Typography variant="body2">
-          {score.error}
-          <a href="mailto: admin@usmcpft.com">admin@usmcpft.com.</a>
+        <Typography variant='body2'>
+          {score.error} If the error persists please contact{' '}
+          <a href='mailto: admin@usmcpft.com'>admin@usmcpft.com.</a>
         </Typography>
       </div>
     );
@@ -62,7 +62,7 @@ const ScoreDisplay = ({
   ) {
     return (
       <div className={styles.container}>
-        <Typography variant="h4">Loading Score</Typography>
+        <Typography variant='h4'>Loading Score</Typography>
       </div>
     );
   }
