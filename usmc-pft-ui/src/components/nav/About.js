@@ -16,6 +16,8 @@ const MCOLink =
   "https://www.marines.mil/News/Publications/MCPEL/Electronic-Library-Display/Article/2524537/mco-610013a-wch-3-cancels-mco-610013a-wch-2/";
 const MARADMINLink =
   "https://www.marines.mil/News/Messages/MARADMINS/Article/1869148/forthcoming-change-to-the-physical-fitness-test-pft/";
+const MARADMINUpdateLink =
+  "https://www.marines.mil/News/Messages/Messages-Display/Article/2719680/forthcoming-changes-to-the-physical-fitness-test/";
 const githubLink = "https://github.com/ivasilyev1/usmc-pft";
 
 const About = (props) => {
@@ -90,8 +92,10 @@ const About = (props) => {
             Scores are calculated based on the publicly available official
             documentation and score tables published by HQMC at{" "}
             <a href={fitnessLink}>fitness.marines.mil</a>, which are formalized
-            in <a href={MCOLink}>Marine Corps Order 6100.13A W/CH 3</a>, and{" "}
-            <a href={MARADMINLink}>MARADMIN 330/19</a>.
+            in <a href={MCOLink}>Marine Corps Order 6100.13A W/CH 3</a>,{" "}
+            <a href={MARADMINLink}>MARADMIN 330/19</a>, and{" "}
+            <a href={MARADMINUpdateLink}>MARADMIN 404/21</a>. The plank
+            calculator is updated to support the new 2022 score table.
           </Typography>
         </div>
       </Paper>
